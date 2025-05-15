@@ -33,7 +33,7 @@ const CustomTooltip = ({ active, payload }) => {
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
       <p className="font-semibold">{d.monthLabel}</p>
-      <p>Kunden aktiv: {fmt(d.totalCustomers)}</p>
+      <p>Kunden aktiv (gesamt): {fmt(d.activeCustomersTotal)}</p>
       <p>Neukunden: {fmt(d.newCustomers)}</p>
       <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
       <p>VE: {fmt(d.totalUnits)}</p>
