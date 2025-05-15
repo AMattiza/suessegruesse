@@ -53,6 +53,10 @@ export default function App() {
     const deck = parseFloat((margin - salesCost - logisticsCost).toFixed(2));
     setData(d => ({ ...d, marginPerUnit: margin, deckungsbeitragPerUnit: deck }));
   }, [data.sellPrice, data.costPrice, data.salesCost, data.logisticsCost]);
+  useEffect(() => {
+    const avg = totalNew > 0 ? totalUnitsFirstYear / totalNew : 0;
+    setData(d => ({ ...d, avgUnitsFirstYear: avg }));
+  }, [totalNew, totalUnitsFirstYear]);
 
   const {
     months,
@@ -136,7 +140,7 @@ for (let j = 0; j < i; j++) {
     const deckungsbeitragII = bruttoRohertrag - vertriebsKosten - logistikKosten;
     const net1 = Math.max(license1Gross - postcardCost - graphicShare, 0);
     const tier1 = net1 * totalUnits;
-    const tier2 = activeTotal > license2Threshold ? license2 * totalUnits : 0
+    const tier2 = activeTotal > license2Threshold ? license2 * totalUnits : 0;
     const rest = deckungsbeitragII - tier1 - tier2;
 
     return {
@@ -175,7 +179,6 @@ const reorders = newPartnersPerMonth
   });
 
   const avgUnitsFirstYear = totalNew > 0 ? totalUnitsFirstYear / totalNew : 0;
-setData(d => ({ ...d, avgUnitsFirstYear }));
   const avgRevenueFirstYear = avgUnitsFirstYear * sellPrice;
 
   // 3) Gesamtübersicht
