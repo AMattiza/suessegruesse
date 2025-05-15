@@ -10,12 +10,13 @@ function CollapsibleSection({ title, children }) {
   return (
     <div className="w-full mb-6">
       <div className="max-w-screen-xl mx-auto px-4 border rounded-2xl bg-white">
-        <button
-          onClick={() => setOpen(!open)}
-          className="w-full p-4 text-left font-semibold"
-        >
-          {title} <span>{open ? '−' : '+'}</span>
-        </button>
+       <button
+  onClick={() => setOpen(!open)}
+  className="w-full p-4 flex items-center justify-between font-semibold"
+>
+  <span>{title}</span>
+  <span className="text-xl">{open ? '−' : '+'}</span>
+</button>
         {open && <div className="p-6">{children}</div>}
       </div>
     </div>
