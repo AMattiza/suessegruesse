@@ -28,12 +28,13 @@ const CustomTooltip = ({ active, payload }) => {
   );
 };
 
-const CreativeChart = ({ data }) => {
+const CreativeChart = ({ data, postcardCost, graphicShare }) => {
   // Werte vorberechnen (Postkarten & Grafik pro Monat)
   const chart = data.map(row => ({
     ...row,
-    postkartenKosten: row.totalUnits * row.postcardCost,
-    grafikKosten: row.totalUnits * row.graphicShare
+    postkartenKosten: row.totalUnits * postcardCost,
+    grafikKosten: row.totalUnits * graphicShare,
+
   }));
 
   return (
