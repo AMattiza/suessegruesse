@@ -94,6 +94,7 @@ for (let cohort = 0; cohort <= lastMonthIndex; cohort++) {
 }
 
   // 1) Chart-Daten
+  let activeTotal = 0;
   const chartData = newPartnersPerMonth.map((cSize, i) => {
 
     const yyyy = startYear + Math.floor((startMonth - 1 + i) / 12);
@@ -101,6 +102,8 @@ for (let cohort = 0; cohort <= lastMonthIndex; cohort++) {
     const monthLabel = `${String(mm).padStart(2, '0')}/${yyyy}`;
 
     const baseUnits = cSize * unitsPerDisplay;
+const activeThisMonth = Math.round(cSize * reorderRate / 100);
+activeTotal += activeThisMonth;
 
 let reorderUnits = 0;
 let reorderCustomers = 0;
@@ -139,6 +142,7 @@ for (let j = 0; j < i; j++) {
       tier2: Number(tier2.toFixed(2)),
       restgewinn: Number(rest.toFixed(2)),
       totalUnits
+      activeCustomersTotal: activeTotal
     };
   });
 
