@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InputMask from './components/InputMask';
 import LicenseChart from './components/LicenseChart';
 import CustomerChart from './components/CustomerChart';
+import CreativeChart from './components/CreativeChart';
 
 function CollapsibleSection({ title, children }) {
   const [open, setOpen] = useState(true);
@@ -413,6 +414,9 @@ const reorders = reorderCustomersSet.size;
            </CollapsibleSection>
 <CollapsibleSection title="Kundenzuwachs">
   <CustomerChart data={chartData} />
+</CollapsibleSection>
+    <CollapsibleSection title="Lizenzkosten & Kreativanteile">
+  <CreativeChart data={chartData} />
 </CollapsibleSection>
 
   </div>
