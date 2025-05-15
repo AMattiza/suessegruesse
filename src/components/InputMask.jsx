@@ -92,7 +92,7 @@ export default function InputMask({ data, onChange, sections }) {
                       onChange={e => handleChange(item.name, e.target.value)}
                       className="w-full max-w-[200px] md:max-w-[250px]"
                     />
-                    <span className="text-sm text-gray-600 w-12 text-right">
+                    <span className="text-sm text-gray-500 w-12 text-right">
                       {data[item.name]}
                     </span>
                   </div>
