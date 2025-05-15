@@ -318,7 +318,7 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø VE pro Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmtNum(totalUnitsAll / months)}</p>
-      <p className="text-sm text-gray-500">Durchschnittliche VE je Monat</p>
+      <p className="text-sm text-gray-500">Ø VE pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">VE gesamt (letzter Monat)</h3>
