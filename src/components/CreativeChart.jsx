@@ -15,13 +15,13 @@ const fmt = value =>
     maximumFractionDigits: 0
   }).format(value);
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload, license1Gross, postcardCost, graphicShare }) => {
   if (!active || !payload || payload.length === 0) return null;
   const d = payload[0].payload;
 
-  const bruttoLizenz1 = d.totalUnits * d.license1Gross;
-  const grafikKosten = d.totalUnits * d.graphicShare;
-  const postkartenKosten = d.totalUnits * d.postcardCost;
+  const bruttoLizenz1 = d.totalUnits * license1Gross;
+  const grafikKosten = d.totalUnits * graphicShare;
+  const postkartenKosten = d.totalUnits * postcardCost;
 
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
@@ -36,19 +36,16 @@ const CustomTooltip = ({ active, payload, label }) => {
       <p>Lizenz 1 brutto: {fmt(bruttoLizenz1)}</p>
       <p>− Grafikkosten: {fmt(grafikKosten)}</p>
       <p>− Postkartenkosten: {fmt(postkartenKosten)}</p>
-
       <p className="font-semibold mt-2">= Lizenz 1 netto: {fmt(d.tier1)}</p>
     </div>
   );
 };
 
-const CreativeChart = ({ data, postcardCost, graphicShare }) => {
-  // Werte vorberechnen (Postkarten & Grafik pro Monat)
+const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
   const chart = data.map(row => ({
     ...row,
     postkartenKosten: row.totalUnits * postcardCost,
-    grafikKosten: row.totalUnits * graphicShare,
-
+    grafikKosten: row.totalUnits * graphicShare
   }));
 
   return (
@@ -56,40 +53,45 @@ const CreativeChart = ({ data, postcardCost, graphicShare }) => {
       <AreaChart data={chart} margin={{ top: 20, right: 20, left: 0, bottom: 5 }}>
         <XAxis dataKey="month" type="category" padding={{ left: 0, right: 0 }} />
         <YAxis hide />
-        <Tooltip content={<CustomTooltip />} />
+        <Tooltip
+          content={
+            <CustomTooltip
+              license1Gross={license1Gross}
+              postcardCost={postcardCost}
+              graphicShare={graphicShare}
+            />
+          }
+        />
         <Legend verticalAlign="top" height={36} />
-        
-        {/* Kosten zuerst, damit sie hinten liegen */}
+
+        {/* Reihenfolge: hinten → vorne */}
         <Area
-  type="monotone"
-  dataKey="tier1"
-  name="Lizenz 1"
-  stroke="#34C759"
-  fill="#34C759"
-  strokeWidth={2}
-  dot={false}
-/>
-
-<Area
-  type="monotone"
-  dataKey="grafikKosten"
-  name="Grafikkosten"
-  stroke="#FFD60A"
-  fill="#FFD60A"
-  strokeWidth={2}
-  dot={false}
-/>
-
-<Area
-  type="monotone"
-  dataKey="postkartenKosten"
-  name="Postkartenkosten"
-  stroke="#007AFF"
-  fill="#007AFF"
-  strokeWidth={2}
-  dot={false}
-/>
-
+          type="monotone"
+          dataKey="tier1"
+          name="Lizenz 1 netto"
+          stroke="#34C759"
+          fill="#34C759"
+          strokeWidth={2}
+          dot={false}
+        />
+        <Area
+          type="monotone"
+          dataKey="grafikKosten"
+          name="Grafikkosten"
+          stroke="#FFD60A"
+          fill="#FFD60A"
+          strokeWidth={2}
+          dot={false}
+        />
+        <Area
+          type="monotone"
+          dataKey="postkartenKosten"
+          name="Postkartenkosten"
+          stroke="#007AFF"
+          fill="#007AFF"
+          strokeWidth={2}
+          dot={false}
+        />
       </AreaChart>
     </ResponsiveContainer>
   );
