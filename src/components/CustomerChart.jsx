@@ -45,23 +45,23 @@ const CustomerChart = ({ data }) => {
         <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" height={36} />
         <Area
-          type="monotone"
-          dataKey="newCustomers"
-          name="Neukunden"
-          stroke="#34C759"
-          fill="#34C759"
-          strokeWidth={2}
-          dot={false}
-        />
-        <Area
-          type="monotone"
-          dataKey="reorderCustomers"
-          name="Nachbesteller"
-          stroke="#007AFF"
-          fill="#007AFF"
-          strokeWidth={2}
-          dot={false}
-        />
+  type="monotone"
+  dataKey="reorderCustomers"
+  name="Nachbesteller"
+  stroke="#007AFF"
+  fill="#007AFF"
+  strokeWidth={2}
+  dot={false}
+/>
+<Area
+  type="monotone"
+  dataKey="newCustomers"
+  name="Neukunden"
+  stroke="#34C759"
+  fill="#34C759"
+  strokeWidth={2}
+  dot={false}
+/>
       </AreaChart>
     </ResponsiveContainer>
   );
