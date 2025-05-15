@@ -74,8 +74,8 @@ const License2Chart = ({ data }) => {
           type="monotone"
           dataKey="tier2"
           name="Lizenz 2 Erlös"
-          stroke="#F06449"
-          fill="#F06449"
+          stroke="#c4cbca"
+          fill="#c4cbca"
           strokeWidth={2}
           dot={false}
         />
