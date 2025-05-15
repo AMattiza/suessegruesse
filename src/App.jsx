@@ -320,7 +320,7 @@ const reorders = newPartnersPerMonth
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmtNum(totalUnitsAll)}</p>
-        <p className="text-sm text-gray-500">Gesamte Verkaufseinheiten über {months} Monate</p>
+        <p className="text-sm text-gray-500">Summe aller Verkaufseinheiten über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmtNum(totalUnitsAll / months)}</p>
@@ -339,7 +339,7 @@ const reorders = newPartnersPerMonth
     <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(totalSalesCost)}</p>
-        <p className="text-sm text-gray-500">Vertriebskosten gesamt über {months} Monate</p>
+        <p className="text-sm text-gray-500">Summe aller Vertriebskosten über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(avgSalesCostPerMonth)}</p>
@@ -351,7 +351,7 @@ const reorders = newPartnersPerMonth
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(totalLogisticsCost)}</p>
-        <p className="text-sm text-gray-500">Logistikkosten gesamt über {months} Monate</p>
+        <p className="text-sm text-gray-500">Summe aller Logistikkosten über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(avgLogisticsCostPerMonth)}</p>
@@ -370,11 +370,11 @@ const reorders = newPartnersPerMonth
     <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1)}</p>
-        <p className="text-sm text-gray-500">Gesamterlös aus Lizenz 1 über {months} Monate</p>
+        <p className="text-sm text-gray-500">Summe aller Lizenzkosten 1 über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1 / months)}</p>
-        <p className="text-sm text-gray-500">Ø Erlös pro Monat aus Lizenz 1 über {months} Monate</p>
+        <p className="text-sm text-gray-500">Ø Lizenzkosten 1 pro Monat über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(lastLicense1)}</p>
@@ -382,11 +382,11 @@ const reorders = newPartnersPerMonth
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2)}</p>
-        <p className="text-sm text-gray-500">Gesamterlös aus Lizenz 2 über {months} Monate</p>
+        <p className="text-sm text-gray-500">Summe aller Lizenzkosten 2 über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2 / months)}</p>
-        <p className="text-sm text-gray-500">Ø Erlös pro Monat aus Lizenz 2 über {months} Monate</p>
+        <p className="text-sm text-gray-500">Ø Lizenzkosten 2 pro Monat über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(lastLicense2)}</p>
