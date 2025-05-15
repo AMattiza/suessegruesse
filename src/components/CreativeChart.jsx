@@ -25,23 +25,54 @@ const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || payload.length === 0) return null;
   const d = payload[0].payload;
 
+  const fmt = v =>
+    new Intl.NumberFormat('de-DE', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(v);
+
   const brutto = d.totalUnits * d.license1Gross;
   const grafik = d.totalUnits * d.graphicShare;
-  const post = d.totalUnits * d.postcardCost;
-  const netto = brutto - grafik - post;
+  const postkarte = d.totalUnits * d.postcardCost;
+  const netto = brutto - grafik - postkarte;
 
   return (
-    <div className="bg-white p-4 border rounded-lg shadow-md">
-      <p className="font-semibold">{d.monthLabel}</p>
-      <p>Kunden aktiv (gesamt): {fmt(d.activeCustomersTotal)}</p>
-      <p>Neukunden: {fmt(d.newCustomers)}</p>
-      <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
-      <p>VE: {fmt(d.totalUnits)}</p>
+    <div className="bg-white p-4 border rounded-lg shadow-md space-y-1 text-sm">
+      <p className="font-semibold text-base">{d.monthLabel}</p>
+
+      <p>
+        Kunden aktiv: <span className="font-semibold">{fmt(d.activeCustomersTotal)}</span>
+      </p>
+      <p>
+        Neukunden: <span className="font-semibold">{fmt(d.newCustomers)}</span>
+      </p>
+      <p>
+        Nachbesteller: <span className="font-semibold">{fmt(d.reorderCustomers)}</span>
+      </p>
+      <p>
+        Verkaufseinheiten: <span className="font-semibold">{fmt(d.totalUnits)}</span>
+      </p>
+
       <hr className="my-2" />
-      <p>Lizenz 1 brutto: {fmtEuro(brutto)}</p>
-      <p>− Grafikkosten: {fmtEuro(grafik)}</p>
-      <p>− Postkartenkosten: {fmtEuro(post)}</p>
-      <p>Lizenz 1 netto: {fmtEuro(netto)}</p>
+
+      <p>
+        Lizenz 1 brutto:{' '}
+        <span className="font-semibold">{fmt(brutto)} €</span>
+      </p>
+      <p>
+        − Grafikkosten:{' '}
+        <span className="font-semibold">−{fmt(grafik)} €</span>
+      </p>
+      <p>
+        − Postkartenkosten:{' '}
+        <span className="font-semibold">−{fmt(postkarte)} €</span>
+      </p>
+
+      <hr className="my-2" />
+
+      <p className="font-semibold">
+        Lizenz 1 netto: {fmt(netto)} €
+      </p>
     </div>
   );
 };
