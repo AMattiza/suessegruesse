@@ -53,10 +53,6 @@ export default function App() {
     const deck = parseFloat((margin - salesCost - logisticsCost).toFixed(2));
     setData(d => ({ ...d, marginPerUnit: margin, deckungsbeitragPerUnit: deck }));
   }, [data.sellPrice, data.costPrice, data.salesCost, data.logisticsCost]);
-  useEffect(() => {
-    const avg = totalNew > 0 ? totalUnitsFirstYear / totalNew : 0;
-    setData(d => ({ ...d, avgUnitsFirstYear: avg }));
-  }, [totalNew, totalUnitsFirstYear]);
 
   const {
     months,
@@ -179,6 +175,8 @@ const reorders = newPartnersPerMonth
   });
 
   const avgUnitsFirstYear = totalNew > 0 ? totalUnitsFirstYear / totalNew : 0;
+setData(d => ({ ...d, avgUnitsFirstYear }));
+
   const avgRevenueFirstYear = avgUnitsFirstYear * sellPrice;
 
   // 3) Gesamtübersicht
