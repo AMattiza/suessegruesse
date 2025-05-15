@@ -141,7 +141,7 @@ for (let j = 0; j < i; j++) {
       tier1: Number(tier1.toFixed(2)),
       tier2: Number(tier2.toFixed(2)),
       restgewinn: Number(rest.toFixed(2)),
-      totalUnits
+      totalUnits,
       activeCustomersTotal: activeTotal
     };
   });
