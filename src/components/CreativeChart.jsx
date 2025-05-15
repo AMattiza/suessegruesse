@@ -22,8 +22,8 @@ const CustomTooltip = ({ active, payload }) => {
     <div className="bg-white p-4 border rounded-lg shadow-md">
       <p className="font-semibold">{d.monthLabel}</p>
       <p>Lizenz 1: {fmt(d.tier1)}</p>
-      <p>Postkartenkosten: {fmt(d.postkartenKosten)}</p>
       <p>Grafikkosten: {fmt(d.grafikKosten)}</p>
+      <p>Postkartenkosten: {fmt(d.postkartenKosten)}</p>
     </div>
   );
 };
