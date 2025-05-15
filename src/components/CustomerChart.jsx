@@ -56,19 +56,19 @@ const CustomerChart = ({ data }) => {
 
         <Area
           type="monotone"
-          dataKey="newCustomers"
-          name="Neukunden"
-          stroke="#136F63"
-          fill="#136F63"
+          dataKey="reorderCustomers"
+          name="Nachbesteller"
+          stroke="#F06449"
+          fill="#F06449"
           strokeWidth={2}
           dot={false}
         />
         <Area
           type="monotone"
-          dataKey="reorderCustomers"
-          name="Nachbesteller"
-          stroke="#F06449"
-          fill="#F06449"
+          dataKey="newCustomers"
+          name="Neukunden"
+          stroke="#136F63"
+          fill="#136F63"
           strokeWidth={2}
           dot={false}
         />
