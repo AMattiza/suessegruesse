@@ -5,14 +5,16 @@ import LicenseChart from './components/LicenseChart';
 function CollapsibleSection({ title, children }) {
   const [open, setOpen] = useState(true);
   return (
-    <div className="w-full border rounded-2xl bg-white mb-6">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full p-4 text-left font-semibold"
-      >
-        {title} <span>{open ? '−' : '+'}</span>
-      </button>
-      {open && <div className="p-6">{children}</div>}
+    <div className="w-full mb-6">
+      <div className="max-w-screen-xl mx-auto px-4 border rounded-2xl bg-white">
+        <button
+          onClick={() => setOpen(!open)}
+          className="w-full p-4 text-left font-semibold"
+        >
+          {title} <span>{open ? '−' : '+'}</span>
+        </button>
+        {open && <div className="p-6">{children}</div>}
+      </div>
     </div>
   );
 }
