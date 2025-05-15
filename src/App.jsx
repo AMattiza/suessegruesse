@@ -338,7 +338,7 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø Vertriebskosten je Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(avgSalesCostPerMonth)}</p>
-      <p className="text-sm text-gray-500">Durchschnitt pro Monat</p>
+      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Vertriebskosten (letzter Monat)</h3>
@@ -353,7 +353,7 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø Logistikkosten je Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(avgLogisticsCostPerMonth)}</p>
-      <p className="text-sm text-gray-500">Durchschnitt pro Monat</p>
+      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Logistikkosten (letzter Monat)</h3>
@@ -373,7 +373,7 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø monatlicher Erlös Lizenz 1</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1 / months)}</p>
-      <p className="text-sm text-gray-500">Durchschnitt pro Monat</p>
+      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Erlös Lizenz 1 (letzter Monat)</h3>
@@ -388,7 +388,7 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø monatlicher Erlös Lizenz 2</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2 / months)}</p>
-      <p className="text-sm text-gray-500">Durchschnitt pro Monat</p>
+      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Erlös Lizenz 2 (letzter Monat)</h3>
