@@ -73,13 +73,9 @@ export default function InputMask({ data, onChange, sections }) {
                     className="border border-gray-300 rounded px-3 py-2 max-w-[250px]"
                   />
                 ) : item.type === 'readOnly' ? (
-                  <input
-                    id={item.name}
-                    type="number"
-                    readOnly
-                    value={data[item.name]}
-                    className="bg-gray-100 border border-gray-300 rounded px-3 py-2 max-w-[250px]"
-                  />
+                  <div className="px-3 py-2 bg-gray-100 text-gray-700 border border-gray-200 rounded max-w-[250px]">
+  {data[item.name].toFixed(2)} €
+</div>
                 ) : (
                   <div className="flex items-center gap-2">
                     <input
