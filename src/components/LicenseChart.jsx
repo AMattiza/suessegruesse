@@ -22,10 +22,10 @@ const CustomTooltip = ({ active, payload, label }) => {
 
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md text-sm space-y-1">
-      <p className="font-semibold text-base mb-2">{d.monthLabel || label}</p>
+      <p className="font-semibold text-base mb-2">{d.monthLabel}</p>
 
       <div className="grid grid-cols-2 gap-x-4">
-        <span>Neue Kunden:</span>
+        <span>Neukunden:</span>
         <span className="text-right font-semibold">{fmtInt(d.newCustomers)}</span>
 
         <span>Nachbesteller:</span>
@@ -35,13 +35,19 @@ const CustomTooltip = ({ active, payload, label }) => {
       <hr className="my-2" />
 
       <div className="grid grid-cols-2 gap-x-4">
-        <span>Rohertrag Pina:</span>
-        <span className="text-right font-semibold">{fmtDec(d.bruttoRohertrag)} €</span>
+        <span>Verkaufseinheiten:</span>
+        <span className="text-right font-semibold">{fmtInt(d.totalUnits)}</span>
+
+        <span>Kunden aktiv:</span>
+        <span className="text-right font-semibold">{fmtInt(d.activeCustomersTotal)}</span>
       </div>
 
       <hr className="my-2" />
 
       <div className="grid grid-cols-2 gap-x-4">
+        <span>Rohertrag Pina:</span>
+        <span className="text-right font-semibold">{fmtDec(d.bruttoRohertrag)} €</span>
+
         <span>Vertriebskosten:</span>
         <span className="text-right font-semibold">−{fmtDec(d.vertriebsKosten)} €</span>
 
@@ -51,24 +57,16 @@ const CustomTooltip = ({ active, payload, label }) => {
 
       <hr className="my-2" />
 
-      <div className="grid grid-cols-2 gap-x-4">
-        <span>Deckungsbeitrag II:</span>
-        <span className="text-right font-semibold">{fmtDec(d.deckungsbeitragII)} €</span>
-      </div>
-
-      <hr className="my-2" />
-
-      <div className="grid grid-cols-2 gap-x-4">
-        <span>Lizenz 1 Kosten:</span>
-        <span className="text-right font-semibold">-{fmtDec(d.tier1)} €</span>
-
-        <span>Lizenz 2 Kosten:</span>
-        <span className="text-right font-semibold">-{fmtDec(d.tier2)} €</span>
-      </div>
-
-      <hr className="my-2" />
-
       <div className="grid grid-cols-2 gap-x-4 font-semibold">
+        <span>Deckungsbeitrag II:</span>
+        <span className="text-right">{fmtDec(d.deckungsbeitragII)} €</span>
+
+        <span>Lizenz 1 Erlös:</span>
+        <span className="text-right">{fmtDec(d.tier1)} €</span>
+
+        <span>Lizenz 2 Erlös:</span>
+        <span className="text-right">{fmtDec(d.tier2)} €</span>
+
         <span>Restgewinn Pina:</span>
         <span className="text-right">{fmtDec(d.restgewinn)} €</span>
       </div>
@@ -76,7 +74,17 @@ const CustomTooltip = ({ active, payload, label }) => {
   );
 };
 
-const LicenseChart = ({ data }) => {
+const LicenseChart = ({
+  data,
+  dataKey = 'tier1',
+  dataKey2 = 'tier2',
+  dataKey3 = 'deckungsbeitragII',
+  dataKey4 = 'restgewinn',
+  name = 'Lizenz 1 Erlös',
+  name2 = 'Lizenz 2 Erlös',
+  name3 = 'Deckungsbeitrag II',
+  name4 = 'Restgewinn'
+}) => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={data} margin={{ top: 20, right: 20, left: -40, bottom: 5 }}>
@@ -84,39 +92,10 @@ const LicenseChart = ({ data }) => {
         <YAxis tick={false} axisLine={false} tickLine={false} />
         <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" />
-
-        <Line
-          type="monotone"
-          dataKey="tier1"
-          stroke="#2D3142"
-          name="Lizenz 1 Erlös"
-          dot={false}
-          strokeWidth={3}
-        />
-        <Line
-          type="monotone"
-          dataKey="tier2"
-          stroke="#136F63"
-          name="Lizenz 2 Erlös"
-          dot={false}
-          strokeWidth={3}
-        />
-        <Line
-          type="monotone"
-          dataKey="deckungsbeitragII"
-          stroke="#A0C1B9"
-          name="Deckungsbeitrag II"
-          dot={false}
-          strokeWidth={3}
-        />
-        <Line
-          type="monotone"
-          dataKey="restgewinn"
-          stroke="#F06449"
-          name="Restgewinn"
-          dot={false}
-          strokeWidth={3}
-        />
+        <Line type="monotone" dataKey={dataKey} stroke="#2D3142" name={name} dot={false} strokeWidth={3} />
+        <Line type="monotone" dataKey={dataKey2} stroke="#136F63" name={name2} dot={false} strokeWidth={3} />
+        <Line type="monotone" dataKey={dataKey3} stroke="#A0C1B9" name={name3} dot={false} strokeWidth={3} />
+        <Line type="monotone" dataKey={dataKey4} stroke="#F06449" name={name4} dot={false} strokeWidth={3} />
       </LineChart>
     </ResponsiveContainer>
   );
