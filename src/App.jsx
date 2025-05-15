@@ -43,8 +43,7 @@ export default function App() {
     license2: 0.75,
     license2Threshold: 50,
     marginPerUnit: 0,
-    deckungsbeitragPerUnit: 0,
-    avgUnitsFirstYear: 0,
+    deckungsbeitragPerUnit: 0
   });
 
   useEffect(() => {
@@ -136,7 +135,7 @@ for (let j = 0; j < i; j++) {
     const deckungsbeitragII = bruttoRohertrag - vertriebsKosten - logistikKosten;
     const net1 = Math.max(license1Gross - postcardCost - graphicShare, 0);
     const tier1 = net1 * totalUnits;
-    const tier2 = activeTotal > license2Threshold ? license2 * totalUnits : 0;
+    const tier2 = activeTotal > license2Threshold ? license2 * totalUnits : 0
     const rest = deckungsbeitragII - tier1 - tier2;
 
     return {
@@ -175,8 +174,6 @@ const reorders = newPartnersPerMonth
   });
 
   const avgUnitsFirstYear = totalNew > 0 ? totalUnitsFirstYear / totalNew : 0;
-setData(d => ({ ...d, avgUnitsFirstYear }));
-
   const avgRevenueFirstYear = avgUnitsFirstYear * sellPrice;
 
   // 3) Gesamtübersicht
@@ -303,8 +300,8 @@ setData(d => ({ ...d, avgUnitsFirstYear }));
   <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
-        <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear * totalNew)}</p>
-        <p className="text-sm text-gray-500">Summe aller Umsätze über {months} Monate</p>
+        <p className="mt-2 text-2xl font-semibold">{fmtNum(avgUnitsFirstYear)}</p>
+        <p className="text-sm text-gray-500">Ø VE je Kunde pro Jahr</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear)}</p>
