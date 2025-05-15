@@ -46,34 +46,36 @@ const CreativeChart = ({ data, postcardCost, graphicShare }) => {
         <Legend verticalAlign="top" height={36} />
         
         {/* Kosten zuerst, damit sie hinten liegen */}
-        <Area
-          type="monotone"
-          dataKey="grafikKosten"
-          name="Grafikkosten"
-          stroke="#FFD60A"
-          fill="#FFD60A"
-          strokeWidth={2}
-          dot={false}
-        />
-        <Area
-          type="monotone"
-          dataKey="postkartenKosten"
-          name="Postkartenkosten"
-          stroke="#007AFF"
-          fill="#007AFF"
-          strokeWidth={2}
-          dot={false}
-        />
-        {/* Lizenz vorne */}
-        <Area
-          type="monotone"
-          dataKey="tier1"
-          name="Lizenz 1"
-          stroke="#34C759"
-          fill="#34C759"
-          strokeWidth={2}
-          dot={false}
-        />
+        <<Area
+  type="monotone"
+  dataKey="tier1"
+  name="Lizenz 1"
+  stroke="#34C759"
+  fill="#34C759"
+  strokeWidth={2}
+  dot={false}
+/>
+
+<Area
+  type="monotone"
+  dataKey="grafikKosten"
+  name="Grafikkosten"
+  stroke="#FFD60A"
+  fill="#FFD60A"
+  strokeWidth={2}
+  dot={false}
+/>
+
+<Area
+  type="monotone"
+  dataKey="postkartenKosten"
+  name="Postkartenkosten"
+  stroke="#007AFF"
+  fill="#007AFF"
+  strokeWidth={2}
+  dot={false}
+/>
+
       </AreaChart>
     </ResponsiveContainer>
   );
