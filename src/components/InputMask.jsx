@@ -9,7 +9,7 @@ export default function InputMask({ data, onChange, sections }) {
   const allFields = [
     { section: 'Basisdaten', items: [
         { label: 'Planungszeitraum (Monate)', name: 'months', type: 'slider', min: 12, max: 120, step: 12 },
-        { label: 'Planungsbeginn', name: 'startDate', type: 'month' },
+        { label: 'Startdatum der Planung', name: 'startDate', type: 'month' },
       ] },
     { section: 'Produktkalkulation', items: [
         { label: 'Einkaufspreis Pina (€ je VE)', name: 'costPrice', type: 'slider', min: 0, max: 20, step: 0.1 },
@@ -25,7 +25,6 @@ export default function InputMask({ data, onChange, sections }) {
     { section: 'Bestellverhalten', items: [
         { label: 'Nachbesteller-Quote (%)', name: 'reorderRate', type: 'slider', min: 0, max: 100, step: 5 },
         { label: 'Nachbestell-Rhythmus (Monate)', name: 'reorderCycle', type: 'slider', min: 1, max: 12, step: 1 },
-        { label: 'Ø VE je Händler', name: 'avgUnitsFirstYear', type: 'readOnly' },
       ] },
     { section: 'Kostenplanung (Pina)', items: [
         { label: 'Vertriebskosten je VE (€)', name: 'salesCost', type: 'slider', min: 0, max: 5, step: 0.1 },
