@@ -15,7 +15,7 @@ const fmt = value =>
     maximumFractionDigits: 0
   }).format(value);
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || payload.length === 0) return null;
   const d = payload[0].payload;
   return (
@@ -30,17 +30,28 @@ const CustomTooltip = ({ active, payload, label }) => {
 const CustomerChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
-      <AreaChart data={data} margin={{ top: 20, right: 20, left: -40, bottom: 5 }}>
-        <XAxis dataKey="month" type="category" padding={{ left: 0, right: 0 }} />
+      <AreaChart
+        data={data}
+        margin={{ top: 20, right: 20, left: 0, bottom: 5 }}
+      >
+        <XAxis
+          dataKey="month"
+          type="category"
+          padding={{ left: 0, right: 0 }}
+          tickLine={false}
+          axisLine={false}
+        />
+        <YAxis hide />
         <Tooltip content={<CustomTooltip />} />
-        <Legend verticalAlign="top" />
+        <Legend verticalAlign="top" height={36} />
         <Area
           type="monotone"
           dataKey="newCustomers"
           name="Neukunden"
           stroke="#34C759"
           fill="#34C759"
-          stackId="1"
+          strokeWidth={2}
+          dot={false}
         />
         <Area
           type="monotone"
@@ -48,7 +59,8 @@ const CustomerChart = ({ data }) => {
           name="Nachbesteller"
           stroke="#007AFF"
           fill="#007AFF"
-          stackId="1"
+          strokeWidth={2}
+          dot={false}
         />
       </AreaChart>
     </ResponsiveContainer>
