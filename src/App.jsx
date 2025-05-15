@@ -106,13 +106,10 @@ let reorderUnits = 0;
 let reorderCustomers = 0;
 
 for (let j = 0; j < i; j++) {
-  const age = i - j;
+  const cohortMonthIndex = j;
+  const reorderMonthIndex = cohortMonthIndex + reorderCycle;
 
-  if (
-    reorderCycle > 0 &&
-    age >= reorderCycle &&
-    age % reorderCycle === 0
-  ) {
+  if (i === reorderMonthIndex || (i - reorderMonthIndex) % reorderCycle === 0) {
     const previousCohort = newPartnersPerMonth[j];
     reorderUnits += previousCohort * (reorderRate / 100) * unitsPerDisplay;
     reorderCustomers += Math.round(previousCohort * (reorderRate / 100));
