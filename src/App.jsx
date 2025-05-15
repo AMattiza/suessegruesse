@@ -102,6 +102,7 @@ for (let cohort = 0; cohort <= lastMonthIndex; cohort++) {
     const monthLabel = `${String(mm).padStart(2, '0')}/${yyyy}`;
 
     const baseUnits = cSize * unitsPerDisplay;
+
 let activeThisMonth = 0;
 if (reorderCycle > 0 && reorderRate > 0) {
   activeThisMonth = Math.round(cSize * reorderRate / 100);
