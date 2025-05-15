@@ -278,9 +278,10 @@ const reorders = newPartnersPerMonth
         />
       </CollapsibleSection>
 
-    <CollapsibleSection title="Kunden">
+    <CollapsibleSection title="Kunden & Umsatz">
   <div className="max-w-screen-xl mx-auto px-4">
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      {/* Kundenkarten */}
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmtNum(totalNew)}</p>
         <p className="text-sm text-gray-500">Summe aller Neukunden über {months} Monate</p>
@@ -294,12 +295,9 @@ const reorders = newPartnersPerMonth
         <p className="text-sm text-gray-500">Kunden mit Bestellungen im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
       </div>
     </div>
-  </div>
-</CollapsibleSection>
 
-<CollapsibleSection title="Umsatz">
-  <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Umsatzkarten */}
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmtNum(avgUnitsFirstYear)}</p>
         <p className="text-sm text-gray-500">Ø VE je Kunde pro Jahr</p>
