@@ -43,11 +43,11 @@ const CustomTooltip = ({ active, payload, label }) => {
         <span>Deckungsbeitrag II:</span>
         <span className="text-right font-semibold">{fmtDec(d.deckungsbeitragII)} €</span>
 
-        <span>Lizenz 1 Erlös:</span>
-        <span className="text-right font-semibold">{fmtDec(d.tier1)} €</span>
+        <span>Lizenz 1:</span>
+        <span className="text-right font-semibold">-{fmtDec(d.tier1)} €</span>
 
-        <span>Lizenz 2 Erlös:</span>
-        <span className="text-right font-semibold">{fmtDec(d.tier2)} €</span>
+        <span>Lizenz 2:</span>
+        <span className="text-right font-semibold">-{fmtDec(d.tier2)} €</span>
       </div>
 
       <hr className="my-2" />
