@@ -267,98 +267,97 @@ const reorders = reorderCustomersSet.size;
         />
       </CollapsibleSection>
 
-      <CollapsibleSection title="Übersicht – Kundenzahlen">
+     <CollapsibleSection title="Übersicht – Kundenzahlen">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Gesamt Neukunden</h3>
       <p className="mt-2 text-2xl font-semibold">{fmtNum(totalNew)}</p>
-      <p className="text-sm text-gray-500">Neukunden gesamt über {months} Monate</p>
+      <p className="text-sm text-gray-500">Summe aller Neukunden über {months} Monate</p>
     </div>
-   <div className="p-4 bg-gray-100 rounded-xl text-center">
-  <h3 className="font-medium">Kunden mit ≥1 Nachbestellung</h3>
-  <p className="mt-2 text-2xl font-semibold">{fmtNum(reorders)}</p>
-  <p className="text-sm text-gray-500">Einzigartige Kunden mit Nachbestellung über {months} Monate</p>
-
-</div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Kunden gesamt (letzter Monat)</h3>
-     <p className="mt-2 text-2xl font-semibold">{fmtNum(activeCustomersInLastMonth)}</p>
-      <p className="text-sm text-gray-500">Kunden im letzten Monat der Planung</p>
+      <h3 className="font-medium">Kunden mit ≥1 Nachbestellung</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmtNum(reorders)}</p>
+      <p className="text-sm text-gray-500">Einzigartige Kunden mit mindestens einer Nachbestellung im Zeitraum</p>
+    </div>
+    <div className="p-4 bg-gray-100 rounded-xl text-center">
+      <h3 className="font-medium">Kunden im letzten Monat</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmtNum(activeCustomersInLastMonth)}</p>
+      <p className="text-sm text-gray-500">Alle aktiven Kunden im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
     </div>
   </div>
 </CollapsibleSection>
 
-      <CollapsibleSection title="Übersicht – Durchschnittswerte">
+<CollapsibleSection title="Übersicht – Durchschnittswerte">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø VE pro Händler/Jahr</h3>
       <p className="mt-2 text-2xl font-semibold">{fmtNum(avgUnitsFirstYear)}</p>
-      <p className="text-sm text-gray-500">Durchschnitt VE pro Kunde im ersten Jahr</p>
+      <p className="text-sm text-gray-500">Durchschnittliche VE je Kunde im ersten Jahr</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø Umsatz pro Händler/Jahr</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear)}</p>
-      <p className="text-sm text-gray-500">Durchschnittlicher Umsatz pro Kunde im ersten Jahr</p>
+      <p className="text-sm text-gray-500">Durchschnittlicher Umsatz je Kunde im ersten Jahr</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Umsatz gesamt (letzter Monat)</h3>
+      <h3 className="font-medium">Umsatz im letzten Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(lastMonthRevenue)}</p>
-      <p className="text-sm text-gray-500">Alle Einnahmen im letzten Monat</p>
+      <p className="text-sm text-gray-500">Gesamter Umsatz im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
     </div>
   </div>
 </CollapsibleSection>
 
-      <CollapsibleSection title="Übersicht – Gesamt VE">
+<CollapsibleSection title="Übersicht – Gesamt VE">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">VE insgesamt Ende Planungszeitraum</h3>
+      <h3 className="font-medium">VE gesamt</h3>
       <p className="mt-2 text-2xl font-semibold">{fmtNum(totalUnitsAll)}</p>
-      <p className="text-sm text-gray-500">Summe aller VE über {months} Monate</p>
+      <p className="text-sm text-gray-500">Summe aller Verkaufseinheiten über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø VE pro Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmtNum(totalUnitsAll / months)}</p>
-      <p className="text-sm text-gray-500">Ø VE pro Monat über {months} Monate</p>
+      <p className="text-sm text-gray-500">Durchschnittliche VE pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">VE gesamt (letzter Monat)</h3>
+      <h3 className="font-medium">VE im letzten Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmtNum(lastMonthUnits)}</p>
-      <p className="text-sm text-gray-500">Alle VE im letzten Monat</p>
+      <p className="text-sm text-gray-500">Anzahl VE im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
     </div>
   </div>
 </CollapsibleSection>
-      
-      <CollapsibleSection title="Kostenübersicht – Vertrieb & Logistik">
+
+<CollapsibleSection title="Kostenübersicht – Vertrieb & Logistik">
   <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Gesamte Vertriebskosten</h3>
+      <h3 className="font-medium">Vertriebskosten gesamt</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(totalSalesCost)}</p>
       <p className="text-sm text-gray-500">Alle Vertriebskosten über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø Vertriebskosten je Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(avgSalesCostPerMonth)}</p>
-      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
+      <p className="text-sm text-gray-500">Durchschnittliche Vertriebskosten pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Vertriebskosten (letzter Monat)</h3>
+      <h3 className="font-medium">Vertriebskosten letzter Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(lastSalesCost)}</p>
-      <p className="text-sm text-gray-500">Im letzten Monat der Planung</p>
+      <p className="text-sm text-gray-500">Kosten im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Gesamte Logistikkosten</h3>
+      <h3 className="font-medium">Logistikkosten gesamt</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(totalLogisticsCost)}</p>
       <p className="text-sm text-gray-500">Alle Logistikkosten über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø Logistikkosten je Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(avgLogisticsCostPerMonth)}</p>
-      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
+      <p className="text-sm text-gray-500">Durchschnittliche Logistikkosten pro Monat über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Logistikkosten (letzter Monat)</h3>
+      <h3 className="font-medium">Logistikkosten letzter Monat</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(lastLogisticsCost)}</p>
-      <p className="text-sm text-gray-500">Im letzten Monat der Planung</p>
+      <p className="text-sm text-gray-500">Kosten im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
     </div>
   </div>
 </CollapsibleSection>
@@ -366,46 +365,34 @@ const reorders = reorderCustomersSet.size;
 <CollapsibleSection title="Lizenz-KPIs">
   <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">
-        Lizenz 1 Erlös gesamt<br />
-        über {months} Monate
-      </h3>
-      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense1)}</p>
+      <h3 className="font-medium">Lizenz 1 gesamt</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1)}</p>
+      <p className="text-sm text-gray-500">Summe der Erlöse aus Lizenz 1 über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">
-        Ø Lizenz 1 pro Monat<br />
-        über {months} Monate
-      </h3>
-      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense1 / months)}</p>
+      <h3 className="font-medium">Ø Lizenz 1 pro Monat</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1 / months)}</p>
+      <p className="text-sm text-gray-500">Durchschnittliche Erlöse pro Monat aus Lizenz 1 über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">
-        Lizenz 1 im letzten Monat<br />
-        ({chartData[chartData.length - 1]?.monthLabel})
-      </h3>
-      <p className="mt-4 text-2xl font-semibold">{fmt(lastLicense1)}</p>
+      <h3 className="font-medium">Lizenz 1 letzter Monat</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmt(lastLicense1)}</p>
+      <p className="text-sm text-gray-500">Erlös aus Lizenz 1 im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">
-        Lizenz 2 Erlös gesamt<br />
-        über {months} Monate
-      </h3>
-      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense2)}</p>
+      <h3 className="font-medium">Lizenz 2 gesamt</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2)}</p>
+      <p className="text-sm text-gray-500">Summe der Erlöse aus Lizenz 2 über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">
-        Ø Lizenz 2 pro Monat<br />
-        über {months} Monate
-      </h3>
-      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense2 / months)}</p>
+      <h3 className="font-medium">Ø Lizenz 2 pro Monat</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2 / months)}</p>
+      <p className="text-sm text-gray-500">Durchschnittliche Erlöse pro Monat aus Lizenz 2 über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">
-        Lizenz 2 im letzten Monat<br />
-        ({chartData[chartData.length - 1]?.monthLabel})
-      </h3>
-      <p className="mt-4 text-2xl font-semibold">{fmt(lastLicense2)}</p>
+      <h3 className="font-medium">Lizenz 2 letzter Monat</h3>
+      <p className="mt-2 text-2xl font-semibold">{fmt(lastLicense2)}</p>
+      <p className="text-sm text-gray-500">Erlös aus Lizenz 2 im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
     </div>
   </div>
 </CollapsibleSection>
