@@ -22,6 +22,7 @@ const CustomTooltip = ({ active, payload, license1Gross, postcardCost, graphicSh
   const bruttoLizenz1 = d.totalUnits * license1Gross;
   const grafikKosten = d.totalUnits * graphicShare;
   const postkartenKosten = d.totalUnits * postcardCost;
+  const netto = d.tier1; // kommt schon fertig aus App
 
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
@@ -36,22 +37,31 @@ const CustomTooltip = ({ active, payload, license1Gross, postcardCost, graphicSh
       <p>Lizenz 1 brutto: {fmt(bruttoLizenz1)}</p>
       <p>− Grafikkosten: {fmt(grafikKosten)}</p>
       <p>− Postkartenkosten: {fmt(postkartenKosten)}</p>
-      <p className="font-semibold mt-2">= Lizenz 1 netto: {fmt(d.tier1)}</p>
+      <p className="font-semibold mt-2">= Lizenz 1 netto: {fmt(netto)}</p>
     </div>
   );
 };
 
 const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
-  const chart = data.map(row => ({
-    ...row,
-    postkartenKosten: row.totalUnits * postcardCost,
-    grafikKosten: row.totalUnits * graphicShare
-  }));
+  const chart = data.map(row => {
+    const totalUnits = row.totalUnits;
+    const brutto = totalUnits * license1Gross;
+    const grafik = totalUnits * graphicShare;
+    const postkarte = totalUnits * postcardCost;
+    const netto = brutto - grafik - postkarte;
+
+    return {
+      ...row,
+      grafikKosten: grafik,
+      postkartenKosten: postkarte,
+      lizenzNetto: netto
+    };
+  });
 
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart data={chart} margin={{ top: 20, right: 20, left: 0, bottom: 5 }}>
-        <XAxis dataKey="month" type="category" padding={{ left: 0, right: 0 }} />
+        <XAxis dataKey="month" type="category" />
         <YAxis hide />
         <Tooltip
           content={
@@ -64,20 +74,12 @@ const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
         />
         <Legend verticalAlign="top" height={36} />
 
-        {/* Reihenfolge: hinten → vorne */}
-        <Area
-          type="monotone"
-          dataKey="tier1"
-          name="Lizenz 1 netto"
-          stroke="#34C759"
-          fill="#34C759"
-          strokeWidth={2}
-          dot={false}
-        />
+        {/* Reihenfolge: hinten → vorne im Stack */}
         <Area
           type="monotone"
           dataKey="grafikKosten"
           name="Grafikkosten"
+          stackId="1"
           stroke="#FFD60A"
           fill="#FFD60A"
           strokeWidth={2}
@@ -87,8 +89,19 @@ const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
           type="monotone"
           dataKey="postkartenKosten"
           name="Postkartenkosten"
+          stackId="1"
           stroke="#007AFF"
           fill="#007AFF"
+          strokeWidth={2}
+          dot={false}
+        />
+        <Area
+          type="monotone"
+          dataKey="lizenzNetto"
+          name="Lizenz 1 netto"
+          stackId="1"
+          stroke="#34C759"
+          fill="#34C759"
           strokeWidth={2}
           dot={false}
         />
