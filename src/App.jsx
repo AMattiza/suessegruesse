@@ -23,6 +23,7 @@ export default function App() {
     startDate: '2025-07',
     costPrice: 6.9,
     sellPrice: 12.9,
+    uvp: 19.9,
     salesCost: 1.5,
     logisticsCost: 0.5,
     unitsPerDisplay: 32,
