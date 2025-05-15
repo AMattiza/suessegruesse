@@ -415,13 +415,13 @@ const reorders = reorderCustomersSet.size;
 <CollapsibleSection title="Kundenzuwachs">
   <CustomerChart data={chartData} />
 </CollapsibleSection>
-    <CollapsibleSection title="Lizenzkosten & Kreativanteile">
-<CreativeChart
-  data={chartData}
-  postcardCost={postcardCost}
-  graphicShare={graphicShare}
-/>
-
+   <CollapsibleSection title="Lizenzkosten & Kreativanteile">
+  <CreativeChart
+    data={chartData}
+    license1Gross={license1Gross}
+    postcardCost={postcardCost}
+    graphicShare={graphicShare}
+  />
 </CollapsibleSection>
 
   </div>
