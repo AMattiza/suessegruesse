@@ -95,6 +95,7 @@ for (let cohort = 0; cohort <= lastMonthIndex; cohort++) {
 
   // 1) Chart-Daten
   let activeTotal = 0;
+  let lastMonthActiveTotal = 0;
   const chartData = newPartnersPerMonth.map((cSize, i) => {
 
     const yyyy = startYear + Math.floor((startMonth - 1 + i) / 12);
@@ -107,6 +108,9 @@ let activeThisMonth = 0;
 if (reorderCycle > 0 && reorderRate > 0) {
   activeThisMonth = Math.round(cSize * reorderRate / 100);
   activeTotal += activeThisMonth;
+  if (i === lastMonthIndex) {
+  lastMonthActiveTotal = activeTotal;
+}
 }
 
 let reorderUnits = 0;
@@ -153,27 +157,9 @@ for (let j = 0; j < i; j++) {
   // 2) KPI – erstes Jahr
   const totalNew = newPartnersPerMonth.reduce((a, b) => a + b, 0);
   // Neukunden mit mindestens einer Nachbestellung zählen
-let reorderCustomersSet = new Set();
-
-for (let month = 0; month < months; month++) {
-  for (let cohort = 0; cohort < month; cohort++) {
-    const age = month - cohort;
-
-    if (
-      reorderCycle > 0 &&
-      age >= reorderCycle &&
-      age % reorderCycle === 0
-    ) {
-      const reorderCount = Math.round(newPartnersPerMonth[cohort] * (reorderRate / 100));
-      for (let i = 0; i < reorderCount; i++) {
-        reorderCustomersSet.add(`${cohort}-${i}`);
-      }
-    }
-  }
-}
-
-const reorders = reorderCustomersSet.size;
-
+const reorders = newPartnersPerMonth
+  .map(size => Math.round(size * reorderRate / 100))
+  .reduce((a, b) => a + b, 0);
 
   let totalUnitsFirstYear = 0;
   newPartnersPerMonth.forEach(cohortSize => {
