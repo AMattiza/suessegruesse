@@ -31,6 +31,8 @@ const CustomTooltip = ({ active, payload, label }) => {
         <span>Nachbesteller:</span>
         <span className="text-right font-semibold">{fmtInt(d.reorderCustomers)}</span>
 
+         <hr className="my-2" />
+
         <span>Rohertrag Pina:</span>
         <span className="text-right font-semibold">{fmtDec(d.bruttoRohertrag)} €</span>
       </div>
@@ -43,6 +45,8 @@ const CustomTooltip = ({ active, payload, label }) => {
 
         <span>Logistikkosten:</span>
         <span className="text-right font-semibold">−{fmtDec(d.logistikKosten)} €</span>
+
+         <hr className="my-2" />
 
         <span>Deckungsbeitrag II:</span>
         <span className="text-right font-semibold">{fmtDec(d.deckungsbeitragII)} €</span>
@@ -74,10 +78,10 @@ const LicenseChart = ({
   dataKey2 = 'tier2',
   dataKey3 = 'deckungsbeitragII',
   dataKey4 = 'restgewinn',
-  strokeColor = '#34C759',
-  strokeColor2 = '#007AFF',
-  strokeColor3 = '#FFD60A',
-  strokeColor4 = '#FF9500',
+  strokeColor = '#2D3142',
+  strokeColor2 = '#136F63',
+  strokeColor3 = '#A0C1B9',
+  strokeColor4 = '#F06449',
   name = 'Lizenz 1 Erlös',
   name2 = 'Lizenz 2 Erlös',
   name3 = 'Deckungsbeitrag II',
