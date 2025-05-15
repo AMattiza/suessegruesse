@@ -101,8 +101,8 @@ const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
           type="monotone"
           dataKey="license1Brutto"
           name="Lizenz 1 brutto"
-          stroke="#D1D5DB"
-          fill="#D1D5DB"
+          stroke="#2D3142"
+          fill="#2D3142"
           strokeWidth={2}
           dot={false}
         />
@@ -119,8 +119,8 @@ const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
           type="monotone"
           dataKey="postkartenKosten"
           name="Postkartenkosten"
-          stroke="#007AFF"
-          fill="#007AFF"
+          stroke="#A0C1B9"
+          fill="#A0C1B9"
           strokeWidth={2}
           dot={false}
         />
