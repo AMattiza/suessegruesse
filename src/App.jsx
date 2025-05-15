@@ -289,7 +289,7 @@ const reorders = newPartnersPerMonth
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmtNum(activeCustomersInLastMonth)}</p>
-        <p className="text-sm text-gray-500">Aktive Kunden im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
+        <p className="text-sm text-gray-500">Kunden mit Bestellungen im letzten Monat ({chartData[chartData.length - 1]?.monthLabel})</p>
       </div>
     </div>
   </div>
