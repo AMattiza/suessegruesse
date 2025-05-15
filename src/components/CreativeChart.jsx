@@ -46,7 +46,7 @@ const CreativeChart = ({ data, postcardCost, graphicShare }) => {
         <Legend verticalAlign="top" height={36} />
         
         {/* Kosten zuerst, damit sie hinten liegen */}
-        <<Area
+        <Area
   type="monotone"
   dataKey="tier1"
   name="Lizenz 1"
