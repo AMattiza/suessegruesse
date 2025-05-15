@@ -3,6 +3,7 @@ import InputMask from './components/InputMask';
 import LicenseChart from './components/LicenseChart';
 import CustomerChart from './components/CustomerChart';
 import CreativeChart from './components/CreativeChart';
+import License2Chart from './components/License2Chart';
 
 function CollapsibleSection({ title, children }) {
   const [open, setOpen] = useState(true);
@@ -424,6 +425,9 @@ const reorders = newPartnersPerMonth
     postcardCost={postcardCost}
     graphicShare={graphicShare}
   />
+</CollapsibleSection>
+    <CollapsibleSection title="Lizenzkosten – Lizenz 2">
+  <License2Chart data={chartData} />
 </CollapsibleSection>
 
   </div>
