@@ -37,42 +37,42 @@ const CustomTooltip = ({ active, payload }) => {
   const netto = brutto - grafik - postkarte;
 
   return (
-    <div className="bg-white p-4 border rounded-lg shadow-md space-y-1 text-sm">
-      <p className="font-semibold text-base">{d.monthLabel}</p>
+    <div className="bg-white p-4 border rounded-lg shadow-md text-sm space-y-1">
+      <p className="font-semibold text-base mb-2">{d.monthLabel}</p>
 
-      <p>
-        Kunden aktiv: <span className="font-semibold">{fmt(d.activeCustomersTotal)}</span>
-      </p>
-      <p>
-        Neukunden: <span className="font-semibold">{fmt(d.newCustomers)}</span>
-      </p>
-      <p>
-        Nachbesteller: <span className="font-semibold">{fmt(d.reorderCustomers)}</span>
-      </p>
-      <p>
-        Verkaufseinheiten: <span className="font-semibold">{fmt(d.totalUnits)}</span>
-      </p>
+      <div className="grid grid-cols-2 gap-x-4">
+        <span>Kunden aktiv:</span>
+        <span className="text-right font-semibold">{fmt(d.activeCustomersTotal)}</span>
 
-      <hr className="my-2" />
+        <span>Neukunden:</span>
+        <span className="text-right font-semibold">{fmt(d.newCustomers)}</span>
 
-      <p>
-        Lizenz 1 brutto:{' '}
-        <span className="font-semibold">{fmt(brutto)} €</span>
-      </p>
-      <p>
-        − Grafikkosten:{' '}
-        <span className="font-semibold">−{fmt(grafik)} €</span>
-      </p>
-      <p>
-        − Postkartenkosten:{' '}
-        <span className="font-semibold">−{fmt(postkarte)} €</span>
-      </p>
+        <span>Nachbesteller:</span>
+        <span className="text-right font-semibold">{fmt(d.reorderCustomers)}</span>
+
+        <span>Verkaufseinheiten:</span>
+        <span className="text-right font-semibold">{fmt(d.totalUnits)}</span>
+      </div>
 
       <hr className="my-2" />
 
-      <p className="font-semibold">
-        Lizenz 1 netto: {fmt(netto)} €
-      </p>
+      <div className="grid grid-cols-2 gap-x-4">
+        <span>Lizenz 1 brutto:</span>
+        <span className="text-right font-semibold">{fmt(brutto)} €</span>
+
+        <span>− Grafikkosten:</span>
+        <span className="text-right font-semibold">−{fmt(grafik)} €</span>
+
+        <span>− Postkartenkosten:</span>
+        <span className="text-right font-semibold">−{fmt(postkarte)} €</span>
+      </div>
+
+      <hr className="my-2" />
+
+      <div className="grid grid-cols-2 gap-x-4 font-semibold">
+        <span>Lizenz 1 netto:</span>
+        <span className="text-right">{fmt(netto)} €</span>
+      </div>
     </div>
   );
 };
