@@ -238,13 +238,16 @@ const reorders = reorderCustomersSet.size;
   const fmtNum = v => new Intl.NumberFormat('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(v);
 
   return (
-    <div className="relative min-h-screen bg-gray-50 p-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-semibold">Business Case Simulator</h1>
-        <button onClick={handleExportAll} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-          Alle Daten exportieren (JSON)
-        </button>
-      </div>
+    <div className="relative min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
+  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+    <h1 className="text-3xl font-semibold">Business Case Simulator</h1>
+    <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+      Alle Daten exportieren (JSON)
+    </button>
+  </div>
+</div>
 
       <CollapsibleSection title="Basisdaten & Produktkalkulation">
         <InputMask data={data} onChange={setData} sections={['Basisdaten', 'Produktkalkulation']} />
