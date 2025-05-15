@@ -301,11 +301,11 @@ const reorders = newPartnersPerMonth
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmtNum(avgUnitsFirstYear)}</p>
-        <p className="text-sm text-gray-500">Ø VE je Händler pro Jahr</p>
+        <p className="text-sm text-gray-500">Ø VE je Kunde pro Jahr</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear)}</p>
-        <p className="text-sm text-gray-500">Ø Umsatz je Händler pro Jahr</p>
+        <p className="text-sm text-gray-500">Ø Umsatz je Kunde pro Jahr</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(lastMonthRevenue)}</p>
