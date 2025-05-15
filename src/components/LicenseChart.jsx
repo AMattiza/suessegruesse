@@ -30,9 +30,11 @@ const CustomTooltip = ({ active, payload, label }) => {
 
         <span>Nachbesteller:</span>
         <span className="text-right font-semibold">{fmtInt(d.reorderCustomers)}</span>
+      </div>
 
-         <hr className="my-2" />
+      <hr className="my-2" />
 
+      <div className="grid grid-cols-2 gap-x-4">
         <span>Rohertrag Pina:</span>
         <span className="text-right font-semibold">{fmtDec(d.bruttoRohertrag)} €</span>
       </div>
@@ -45,9 +47,11 @@ const CustomTooltip = ({ active, payload, label }) => {
 
         <span>Logistikkosten:</span>
         <span className="text-right font-semibold">−{fmtDec(d.logistikKosten)} €</span>
+      </div>
 
-         <hr className="my-2" />
+      <hr className="my-2" />
 
+      <div className="grid grid-cols-2 gap-x-4">
         <span>Deckungsbeitrag II:</span>
         <span className="text-right font-semibold">{fmtDec(d.deckungsbeitragII)} €</span>
       </div>
@@ -72,21 +76,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   );
 };
 
-const LicenseChart = ({
-  data,
-  dataKey = 'tier1',
-  dataKey2 = 'tier2',
-  dataKey3 = 'deckungsbeitragII',
-  dataKey4 = 'restgewinn',
-  strokeColor = '#2D3142',
-  strokeColor2 = '#136F63',
-  strokeColor3 = '#A0C1B9',
-  strokeColor4 = '#F06449',
-  name = 'Lizenz 1 Erlös',
-  name2 = 'Lizenz 2 Erlös',
-  name3 = 'Deckungsbeitrag II',
-  name4 = 'Restgewinn'
-}) => {
+const LicenseChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={data} margin={{ top: 20, right: 20, left: -40, bottom: 5 }}>
@@ -94,10 +84,39 @@ const LicenseChart = ({
         <YAxis tick={false} axisLine={false} tickLine={false} />
         <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" />
-        <Line type="monotone" dataKey={dataKey} stroke={strokeColor} name={name} dot={false} strokeWidth={3} />
-        <Line type="monotone" dataKey={dataKey2} stroke={strokeColor2} name={name2} dot={false} strokeWidth={3} />
-        <Line type="monotone" dataKey={dataKey3} stroke={strokeColor3} name={name3} dot={false} strokeWidth={3} />
-        <Line type="monotone" dataKey={dataKey4} stroke={strokeColor4} name={name4} dot={false} strokeWidth={3} />
+
+        <Line
+          type="monotone"
+          dataKey="tier1"
+          stroke="#2D3142"
+          name="Lizenz 1 Erlös"
+          dot={false}
+          strokeWidth={3}
+        />
+        <Line
+          type="monotone"
+          dataKey="tier2"
+          stroke="#136F63"
+          name="Lizenz 2 Erlös"
+          dot={false}
+          strokeWidth={3}
+        />
+        <Line
+          type="monotone"
+          dataKey="deckungsbeitragII"
+          stroke="#A0C1B9"
+          name="Deckungsbeitrag II"
+          dot={false}
+          strokeWidth={3}
+        />
+        <Line
+          type="monotone"
+          dataKey="restgewinn"
+          stroke="#F06449"
+          name="Restgewinn"
+          dot={false}
+          strokeWidth={3}
+        />
       </LineChart>
     </ResponsiveContainer>
   );
