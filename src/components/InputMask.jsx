@@ -9,7 +9,7 @@ export default function InputMask({ data, onChange, sections }) {
   const allFields = [
     { section: 'Basisdaten', items: [
         { label: 'Planungszeitraum (Monate)', name: 'months', type: 'slider', min: 12, max: 120, step: 12 },
-        { label: 'Startdatum der Planung', name: 'startDate', type: 'month' },
+        { label: 'Planungsbeginn', name: 'startDate', type: 'month' },
       ] },
     { section: 'Produktkalkulation', items: [
         { label: 'Einkaufspreis Pina (€ je VE)', name: 'costPrice', type: 'slider', min: 0, max: 20, step: 0.1 },
