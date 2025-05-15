@@ -32,7 +32,6 @@ const CustomerChart = ({ data }) => {
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart data={data} margin={{ top: 20, right: 20, left: -40, bottom: 5 }}>
         <XAxis dataKey="month" />
-        <YAxis hide />
         <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" />
         <Area
