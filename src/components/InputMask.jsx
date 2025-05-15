@@ -25,6 +25,7 @@ export default function InputMask({ data, onChange, sections }) {
     { section: 'Bestellverhalten', items: [
         { label: 'Nachbesteller-Quote (%)', name: 'reorderRate', type: 'slider', min: 0, max: 100, step: 5 },
         { label: 'Nachbestell-Rhythmus (Monate)', name: 'reorderCycle', type: 'slider', min: 1, max: 12, step: 1 },
+        { label: 'Ø VE je Händler', name: 'avgUnitsFirstYear', type: 'readOnly' },
       ] },
     { section: 'Kostenplanung (Pina)', items: [
         { label: 'Vertriebskosten je VE (€)', name: 'salesCost', type: 'slider', min: 0, max: 5, step: 0.1 },
