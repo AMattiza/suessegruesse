@@ -18,12 +18,17 @@ const fmt = value =>
 const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || payload.length === 0) return null;
   const d = payload[0].payload;
+
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
       <p className="font-semibold">{d.monthLabel}</p>
+      <p>Neukunden: {fmt(d.newCustomers)}</p>
+      <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
+      <p>VE gesamt: {fmt(d.totalUnits)}</p>
+      <hr className="my-2" />
       <p>Lizenz 1: {fmt(d.tier1)}</p>
-      <p>Grafikkosten: {fmt(d.grafikKosten)}</p>
       <p>Postkartenkosten: {fmt(d.postkartenKosten)}</p>
+      <p>Grafikkosten: {fmt(d.grafikKosten)}</p>
     </div>
   );
 };
