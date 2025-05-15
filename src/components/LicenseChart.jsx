@@ -25,6 +25,9 @@ const CustomTooltip = ({ active, payload, label }) => {
       <p className="font-semibold text-base mb-2">{d.monthLabel}</p>
 
       <div className="grid grid-cols-2 gap-x-4">
+        <span>Kunden aktiv:</span>
+        <span className="text-right font-semibold">{fmtInt(d.activeCustomersTotal)}</span>
+        
         <span>Neukunden:</span>
         <span className="text-right font-semibold">{fmtInt(d.newCustomers)}</span>
 
@@ -38,8 +41,6 @@ const CustomTooltip = ({ active, payload, label }) => {
         <span>Verkaufseinheiten:</span>
         <span className="text-right font-semibold">{fmtInt(d.totalUnits)}</span>
 
-        <span>Kunden aktiv:</span>
-        <span className="text-right font-semibold">{fmtInt(d.activeCustomersTotal)}</span>
       </div>
 
       <hr className="my-2" />
