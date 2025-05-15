@@ -102,20 +102,22 @@ for (let cohort = 0; cohort <= lastMonthIndex; cohort++) {
 
     const baseUnits = cSize * unitsPerDisplay;
 
-    let reorderUnits = 0;
-    let reorderCustomers = 0;
-    for (let j = 0; j < i; j++) {
-      const age = i - j;
-      if (
-  reorderCycle > 0 &&
-  age >= reorderCycle &&
-  (i - j) % reorderCycle === 0
-)
-        const previousCohort = newPartnersPerMonth[j];
-        reorderUnits += previousCohort * (reorderRate / 100) * unitsPerDisplay;
-        reorderCustomers += Math.round(previousCohort * (reorderRate / 100));
-      }
-    }
+let reorderUnits = 0;
+let reorderCustomers = 0;
+
+for (let j = 0; j < i; j++) {
+  const age = i - j;
+
+  if (
+    reorderCycle > 0 &&
+    age >= reorderCycle &&
+    age % reorderCycle === 0
+  ) {
+    const previousCohort = newPartnersPerMonth[j];
+    reorderUnits += previousCohort * (reorderRate / 100) * unitsPerDisplay;
+    reorderCustomers += Math.round(previousCohort * (reorderRate / 100));
+  }
+}
 
     const totalUnits = baseUnits + reorderUnits;
     const bruttoRohertrag = (sellPrice - costPrice) * totalUnits;
@@ -151,7 +153,12 @@ let reorderCustomersSet = new Set();
 for (let month = 0; month < months; month++) {
   for (let cohort = 0; cohort < month; cohort++) {
     const age = month - cohort;
-    if (reorderCycle > 0 && age >= reorderCycle && age % reorderCycle === 0) {
+
+    if (
+      reorderCycle > 0 &&
+      age >= reorderCycle &&
+      age % reorderCycle === 0
+    ) {
       const reorderCount = Math.round(newPartnersPerMonth[cohort] * (reorderRate / 100));
       for (let i = 0; i < reorderCount; i++) {
         reorderCustomersSet.add(`${cohort}-${i}`);
