@@ -55,7 +55,6 @@ return (
     </div>
   </div>
 );
-};
 
 const LicenseChart = ({
   data,
