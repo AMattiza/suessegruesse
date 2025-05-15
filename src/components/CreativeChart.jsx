@@ -110,8 +110,8 @@ const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
           type="monotone"
           dataKey="grafikKosten"
           name="Grafikkosten"
-          stroke="#FFD60A"
-          fill="#FFD60A"
+          stroke="#136F63"
+          fill="#136F63"
           strokeWidth={2}
           dot={false}
         />
