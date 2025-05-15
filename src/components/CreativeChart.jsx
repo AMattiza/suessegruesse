@@ -15,71 +15,72 @@ const fmt = value =>
     maximumFractionDigits: 0
   }).format(value);
 
-const CustomTooltip = ({ active, payload, license1Gross, postcardCost, graphicShare }) => {
+const fmtEuro = value =>
+  new Intl.NumberFormat('de-DE', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(value) + ' €';
+
+const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || payload.length === 0) return null;
   const d = payload[0].payload;
 
-  const bruttoLizenz1 = d.totalUnits * license1Gross;
-  const grafikKosten = d.totalUnits * graphicShare;
-  const postkartenKosten = d.totalUnits * postcardCost;
-  const netto = d.tier1; // kommt schon fertig aus App
+  const brutto = d.totalUnits * d.license1Gross;
+  const grafik = d.totalUnits * d.graphicShare;
+  const post = d.totalUnits * d.postcardCost;
+  const netto = brutto - grafik - post;
 
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
       <p className="font-semibold">{d.monthLabel}</p>
-
+      <p>Kunden aktiv: {fmt(d.totalCustomers)}</p>
       <p>Neukunden: {fmt(d.newCustomers)}</p>
       <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
-      <p>VE gesamt: {fmt(d.totalUnits)}</p>
-
+      <p>VE: {fmt(d.totalUnits)}</p>
       <hr className="my-2" />
-
-      <p>Lizenz 1 brutto: {fmt(bruttoLizenz1)}</p>
-      <p>− Grafikkosten: {fmt(grafikKosten)}</p>
-      <p>− Postkartenkosten: {fmt(postkartenKosten)}</p>
-      <p className="font-semibold mt-2">= Lizenz 1 netto: {fmt(netto)}</p>
+      <p>Lizenz 1 brutto: {fmtEuro(brutto)}</p>
+      <p>− Grafikkosten: {fmtEuro(grafik)}</p>
+      <p>− Postkartenkosten: {fmtEuro(post)}</p>
+      <p>Lizenz 1 netto: {fmtEuro(netto)}</p>
     </div>
   );
 };
 
 const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
-  const chart = data.map(row => {
-    const totalUnits = row.totalUnits;
-    const brutto = totalUnits * license1Gross;
-    const grafik = totalUnits * graphicShare;
-    const postkarte = totalUnits * postcardCost;
-    const netto = brutto - grafik - postkarte;
-
-    return {
-      ...row,
-      grafikKosten: grafik,
-      postkartenKosten: postkarte,
-      lizenzNetto: netto
-    };
-  });
+  // Daten erweitern
+  const chart = data.map(row => ({
+    ...row,
+    postkartenKosten: row.totalUnits * postcardCost,
+    grafikKosten: row.totalUnits * graphicShare,
+    license1Brutto: row.totalUnits * license1Gross,
+    totalCustomers: row.newCustomers + row.reorderCustomers,
+    postcardCost,
+    graphicShare,
+    license1Gross
+  }));
 
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart data={chart} margin={{ top: 20, right: 20, left: 0, bottom: 5 }}>
         <XAxis dataKey="month" type="category" />
         <YAxis hide />
-        <Tooltip
-          content={
-            <CustomTooltip
-              license1Gross={license1Gross}
-              postcardCost={postcardCost}
-              graphicShare={graphicShare}
-            />
-          }
-        />
+        <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" height={36} />
 
-        {/* Reihenfolge: hinten → vorne im Stack */}
+        {/* Brutto-Lizenz als Basis-Fläche */}
+        <Area
+          type="monotone"
+          dataKey="license1Brutto"
+          name="Lizenz 1 brutto"
+          stroke="#D1D5DB"
+          fill="#D1D5DB"
+          strokeWidth={2}
+          dot={false}
+        />
         <Area
           type="monotone"
           dataKey="grafikKosten"
           name="Grafikkosten"
-          stackId="1"
           stroke="#FFD60A"
           fill="#FFD60A"
           strokeWidth={2}
@@ -89,19 +90,8 @@ const CreativeChart = ({ data, license1Gross, postcardCost, graphicShare }) => {
           type="monotone"
           dataKey="postkartenKosten"
           name="Postkartenkosten"
-          stackId="1"
           stroke="#007AFF"
           fill="#007AFF"
-          strokeWidth={2}
-          dot={false}
-        />
-        <Area
-          type="monotone"
-          dataKey="lizenzNetto"
-          name="Lizenz 1 netto"
-          stackId="1"
-          stroke="#34C759"
-          fill="#34C759"
           strokeWidth={2}
           dot={false}
         />
