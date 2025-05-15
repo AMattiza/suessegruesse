@@ -21,8 +21,6 @@ const CustomTooltip = ({ active, payload }) => {
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
       <p className="font-semibold">{d.monthLabel}</p>
-      <p>Neue Kunden: {fmtInt(d.newCustomers)}</p>
-      <p>Nachbesteller: {fmtInt(d.reorderCustomers)}</p>
       <p>Lizenz 1: {fmt(d.tier1)}</p>
       <p>Grafikkosten: {fmt(d.grafikKosten)}</p>
       <p>Postkartenkosten: {fmt(d.postkartenKosten)}</p>
