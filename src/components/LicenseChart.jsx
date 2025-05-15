@@ -59,14 +59,14 @@ const CustomTooltip = ({ active, payload, label }) => {
       <hr className="my-2" />
 
       <div className="grid grid-cols-2 gap-x-4 font-semibold">
-        <span>Deckungsbeitrag II:</span>
-        <span className="text-right">{fmtDec(d.deckungsbeitragII)} €</span>
+  <span>Deckungsbeitrag II:</span>
+  <span className="text-right">{fmtDec(d.deckungsbeitragII)} €</span>
 
-        <span>Lizenzkosten 1:</span>
-        <span className="text-right">-{fmtDec(d.tier1)} €</span>
+  <span>Lizenzkosten 1:</span>
+  <span className="text-right">-{fmtDec(d.tier1)} €</span>
 
-        <span>Lizenzkosten 2:</span>
-<span className="text-right">-{fmtDec(d.tier2)} €</span>
+  <span>Lizenzkosten 2:</span>
+  <span className="text-right">-{fmtDec(d.tier2)} €</span>
 </div>
 
 <hr className="my-2" />
@@ -74,6 +74,8 @@ const CustomTooltip = ({ active, payload, label }) => {
 <div className="grid grid-cols-2 gap-x-4 font-semibold">
   <span>Restgewinn Pina:</span>
   <span className="text-right">{fmtDec(d.restgewinn)} €</span>
+</div>
+
 </div>
 
       </div>
