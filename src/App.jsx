@@ -302,10 +302,9 @@ setData(d => ({ ...d, avgUnitsFirstYear }));
 <CollapsibleSection title="Umsatz">
   <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-     <div className="p-4 bg-gray-100 rounded-xl text-center">
-  <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear * totalNew)}</p>
-  <p className="text-sm text-gray-500">Summe aller Umsätze über {months} Monate</p>
-</div>
+      <div className="p-4 bg-gray-100 rounded-xl text-center">
+        <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear * totalNew)}</p>
+        <p className="text-sm text-gray-500">Summe aller Umsätze über {months} Monate</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear)}</p>
