@@ -363,37 +363,49 @@ const reorders = reorderCustomersSet.size;
   </div>
 </CollapsibleSection>
 
-      <CollapsibleSection title="Lizenz-KPIs">
+<CollapsibleSection title="Lizenz-KPIs">
   <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Gesamt Erlös Lizenz 1</h3>
-      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1)}</p>
-      <p className="text-sm text-gray-500">Summe Lizenz 1-Erlöse über {months} Monate</p>
+      <h3 className="font-medium">
+        Lizenz 1 Erlös gesamt<br />
+        über {months} Monate
+      </h3>
+      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense1)}</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Ø monatlicher Erlös Lizenz 1</h3>
-      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1 / months)}</p>
-      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
+      <h3 className="font-medium">
+        Ø Lizenz 1 pro Monat<br />
+        über {months} Monate
+      </h3>
+      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense1 / months)}</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Erlös Lizenz 1 (letzter Monat)</h3>
-      <p className="mt-2 text-2xl font-semibold">{fmt(lastLicense1)}</p>
-      <p className="text-sm text-gray-500">Im letzten Monat der Planung</p>
+      <h3 className="font-medium">
+        Lizenz 1 im letzten Monat<br />
+        ({chartData[chartData.length - 1]?.monthLabel})
+      </h3>
+      <p className="mt-4 text-2xl font-semibold">{fmt(lastLicense1)}</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Gesamt Erlös Lizenz 2</h3>
-      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2)}</p>
-      <p className="text-sm text-gray-500">Summe Lizenz 2-Erlöse über {months} Monate</p>
+      <h3 className="font-medium">
+        Lizenz 2 Erlös gesamt<br />
+        über {months} Monate
+      </h3>
+      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense2)}</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Ø monatlicher Erlös Lizenz 2</h3>
-      <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2 / months)}</p>
-      <p className="text-sm text-gray-500">Ø pro Monat über {months} Monate</p>
+      <h3 className="font-medium">
+        Ø Lizenz 2 pro Monat<br />
+        über {months} Monate
+      </h3>
+      <p className="mt-4 text-2xl font-semibold">{fmt(totalLicense2 / months)}</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
-      <h3 className="font-medium">Erlös Lizenz 2 (letzter Monat)</h3>
-      <p className="mt-2 text-2xl font-semibold">{fmt(lastLicense2)}</p>
-      <p className="text-sm text-gray-500">Im letzten Monat der Planung</p>
+      <h3 className="font-medium">
+        Lizenz 2 im letzten Monat<br />
+        ({chartData[chartData.length - 1]?.monthLabel})
+      </h3>
+      <p className="mt-4 text-2xl font-semibold">{fmt(lastLicense2)}</p>
     </div>
   </div>
 </CollapsibleSection>
