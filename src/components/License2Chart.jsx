@@ -49,7 +49,7 @@ const CustomTooltip = ({ active, payload }) => {
         <span>Lizenz 2 pro Einheit:</span>
         <span className="text-right font-semibold">{fmtEuro(d.license2)}</span>
 
-        <span>Lizenz 2 Erlös:</span>
+        <span>Lizenz 2 brutto:</span>
         <span className="text-right font-semibold">{fmtEuro(d.tier2)}</span>
       </div>
     </div>
@@ -73,7 +73,7 @@ const License2Chart = ({ data }) => {
         <Area
           type="monotone"
           dataKey="tier2"
-          name="Lizenz 2 Erlös"
+          name="Lizenz 2 brutto"
           stroke="#c4cbca"
           fill="#c4cbca"
           strokeWidth={2}
