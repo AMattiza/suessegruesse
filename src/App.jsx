@@ -409,7 +409,8 @@ const reorders = reorderCustomersSet.size;
           strokeColor4="#FF9500"
           name4="Restgewinn"
         />
-      </CollapsibleSection>
+           </CollapsibleSection>
     </div>
+  </div>
   );
 }
