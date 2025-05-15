@@ -40,8 +40,8 @@ export default function App() {
     license1Gross: 1.4,
     postcardCost: 0.1,
     graphicShare: 0.3,
-    license2: 1,
-    license2Threshold: 10,
+    license2: 0.75,
+    license2Threshold: 50,
     marginPerUnit: 0,
     deckungsbeitragPerUnit: 0
   });
