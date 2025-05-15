@@ -18,11 +18,20 @@ const fmt = value =>
 const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || payload.length === 0) return null;
   const d = payload[0].payload;
+
   return (
-    <div className="bg-white p-4 border rounded-lg shadow-md">
-      <p className="font-semibold">{d.monthLabel}</p>
-      <p>Neukunden: {fmt(d.newCustomers)}</p>
-      <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
+    <div className="bg-white p-4 border rounded-lg shadow-md text-sm space-y-1">
+      <p className="font-semibold text-base mb-2">{d.monthLabel}</p>
+
+      <div className="grid grid-cols-2 gap-x-4">
+        <span>Neukunden:</span>
+        <span className="text-right font-semibold">{fmt(d.newCustomers)}</span>
+
+        <span>Nachbesteller:</span>
+        <span className="text-right font-semibold">{fmt(d.reorderCustomers)}</span>
+      </div>
+
+      <hr className="my-2" />
     </div>
   );
 };
@@ -44,24 +53,25 @@ const CustomerChart = ({ data }) => {
         <YAxis hide />
         <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" height={36} />
+
         <Area
-  type="monotone"
-  dataKey="reorderCustomers"
-  name="Nachbesteller"
-  stroke="#007AFF"
-  fill="#007AFF"
-  strokeWidth={2}
-  dot={false}
-/>
-<Area
-  type="monotone"
-  dataKey="newCustomers"
-  name="Neukunden"
-  stroke="#34C759"
-  fill="#34C759"
-  strokeWidth={2}
-  dot={false}
-/>
+          type="monotone"
+          dataKey="newCustomers"
+          name="Neukunden"
+          stroke="#136F63"
+          fill="#136F63"
+          strokeWidth={2}
+          dot={false}
+        />
+        <Area
+          type="monotone"
+          dataKey="reorderCustomers"
+          name="Nachbesteller"
+          stroke="#F06449"
+          fill="#F06449"
+          strokeWidth={2}
+          dot={false}
+        />
       </AreaChart>
     </ResponsiveContainer>
   );
