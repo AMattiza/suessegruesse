@@ -26,7 +26,7 @@ const CustomTooltip = ({ active, payload }) => {
       <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
       <p>VE gesamt: {fmt(d.totalUnits)}</p>
       <hr className="my-2" />
-      <p>Lizenz 1: {fmt(d.tier1)}</p>
+      <p>Lizenz 1 (netto): {fmt(d.tier1)}</p>
       <p>Postkartenkosten: {fmt(d.postkartenKosten)}</p>
       <p>Grafikkosten: {fmt(d.grafikKosten)}</p>
     </div>
