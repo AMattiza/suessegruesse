@@ -37,41 +37,39 @@ const CustomTooltip = ({ active, payload }) => {
   const netto = brutto - grafik - postkarte;
 
   return (
-    <div className="bg-white p-4 border rounded-lg shadow-md text-sm space-y-1">
-      <p className="font-semibold text-base mb-2">{d.monthLabel}</p>
+    <div className="bg-white border border-gray-200 shadow-xl rounded-xl p-4 text-sm text-gray-800 space-y-1 w-64">
+      <p className="text-base font-semibold text-gray-900 mb-2">{d.monthLabel}</p>
 
-      <div className="grid grid-cols-2 gap-x-4">
-        <span>Kunden aktiv:</span>
-        <span className="text-right font-semibold">{fmt(d.activeCustomersTotal)}</span>
+      <div className="grid grid-cols-2 gap-x-3">
+        <span className="text-gray-600">Kunden aktiv:</span>
+        <span className="text-right font-medium text-gray-800">{fmt(d.activeCustomersTotal)}</span>
 
-        <span>Neukunden:</span>
-        <span className="text-right font-semibold">{fmt(d.newCustomers)}</span>
+        <span className="text-gray-600">Neukunden:</span>
+        <span className="text-right text-[#34C759] font-medium">{fmt(d.newCustomers)}</span>
 
-        <span>Nachbesteller:</span>
-        <span className="text-right font-semibold">{fmt(d.reorderCustomers)}</span>
+        <span className="text-gray-600">Nachbesteller:</span>
+        <span className="text-right text-[#007AFF] font-medium">{fmt(d.reorderCustomers)}</span>
 
-        <span>Verkaufseinheiten:</span>
-        <span className="text-right font-semibold">{fmt(d.totalUnits)}</span>
+        <span className="text-gray-600">Verkaufseinheiten:</span>
+        <span className="text-right font-medium text-gray-800">{fmt(d.totalUnits)}</span>
       </div>
 
-      <hr className="my-2" />
+      <hr className="my-2 border-gray-200" />
 
-      <div className="grid grid-cols-2 gap-x-4">
-        <span>Lizenz 1 brutto:</span>
-        <span className="text-right font-semibold">{fmt(brutto)} €</span>
+      <div className="grid grid-cols-2 gap-x-3">
+        <span className="text-gray-600">Lizenz 1 brutto:</span>
+        <span className="text-right text-[#34C759] font-semibold">{fmt(brutto)} €</span>
 
-        <span>− Grafikkosten:</span>
-        <span className="text-right font-semibold">−{fmt(grafik)} €</span>
+        <span className="text-gray-600">− Grafikkosten:</span>
+        <span className="text-right text-[#FFD60A] font-semibold">−{fmt(grafik)} €</span>
 
-        <span>− Postkartenkosten:</span>
-        <span className="text-right font-semibold">−{fmt(postkarte)} €</span>
+        <span className="text-gray-600">− Postkartenkosten:</span>
+        <span className="text-right text-[#007AFF] font-semibold">−{fmt(postkarte)} €</span>
       </div>
 
-      <hr className="my-2" />
-
-      <div className="grid grid-cols-2 gap-x-4 font-semibold">
-        <span>Lizenz 1 netto:</span>
-        <span className="text-right">{fmt(netto)} €</span>
+      <div className="mt-2 border-t border-gray-200 pt-2 grid grid-cols-2 gap-x-3 text-base font-bold">
+        <span className="text-gray-800">Lizenz 1 netto:</span>
+        <span className="text-right text-[#FF9500]">{fmt(netto)} €</span>
       </div>
     </div>
   );
