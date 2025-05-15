@@ -43,7 +43,7 @@ export default function App() {
     license2: 0.75,
     license2Threshold: 50,
     marginPerUnit: 0,
-    deckungsbeitragPerUnit: 0
+    deckungsbeitragPerUnit: 0,
     avgUnitsFirstYear: 0,
   });
 
