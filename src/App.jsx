@@ -26,7 +26,7 @@ export default function App() {
     salesCost: 1.5,
     logisticsCost: 0.5,
     unitsPerDisplay: 32,
-    newPartners: 2,
+    newPartners: 3,
     increaseInterval: 3,
     increaseAmount: 1,
     reorderRate: 75,
