@@ -15,20 +15,29 @@ const fmt = value =>
     maximumFractionDigits: 0
   }).format(value);
 
-const CustomTooltip = ({ active, payload }) => {
+const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || payload.length === 0) return null;
   const d = payload[0].payload;
+
+  const bruttoLizenz1 = d.totalUnits * d.license1Gross;
+  const grafikKosten = d.totalUnits * d.graphicShare;
+  const postkartenKosten = d.totalUnits * d.postcardCost;
 
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
       <p className="font-semibold">{d.monthLabel}</p>
+
       <p>Neukunden: {fmt(d.newCustomers)}</p>
       <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
       <p>VE gesamt: {fmt(d.totalUnits)}</p>
+
       <hr className="my-2" />
-      <p>Lizenz 1 (netto): {fmt(d.tier1)}</p>
-      <p>Postkartenkosten: {fmt(d.postkartenKosten)}</p>
-      <p>Grafikkosten: {fmt(d.grafikKosten)}</p>
+
+      <p>Lizenz 1 brutto: {fmt(bruttoLizenz1)}</p>
+      <p>− Grafikkosten: {fmt(grafikKosten)}</p>
+      <p>− Postkartenkosten: {fmt(postkartenKosten)}</p>
+
+      <p className="font-semibold mt-2">= Lizenz 1 netto: {fmt(d.tier1)}</p>
     </div>
   );
 };
