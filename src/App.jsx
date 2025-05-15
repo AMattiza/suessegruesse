@@ -272,12 +272,13 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Gesamt Neukunden</h3>
       <p className="mt-2 text-2xl font-semibold">{fmtNum(totalNew)}</p>
-      <p className="text-sm text-gray-500">Summe aller Neukunden</p>
+      <p className="text-sm text-gray-500">Neukunden gesamt über {months} Monate</p>
     </div>
    <div className="p-4 bg-gray-100 rounded-xl text-center">
   <h3 className="font-medium">Kunden mit ≥1 Nachbestellung</h3>
   <p className="mt-2 text-2xl font-semibold">{fmtNum(reorders)}</p>
-  <p className="text-sm text-gray-500">Einzigartige Kunden mit mindestens einer Nachbestellung</p>
+  <p className="text-sm text-gray-500">Einzigartige Kunden mit Nachbestellung über {months} Monate</p>
+
 </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Kunden gesamt (letzter Monat)</h3>
@@ -367,7 +368,7 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Gesamt Erlös Lizenz 1</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense1)}</p>
-      <p className="text-sm text-gray-500">Summe Lizenz 1-Erlöse</p>
+      <p className="text-sm text-gray-500">Summe Lizenz 1-Erlöse über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø monatlicher Erlös Lizenz 1</h3>
@@ -382,7 +383,7 @@ const reorders = reorderCustomersSet.size;
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Gesamt Erlös Lizenz 2</h3>
       <p className="mt-2 text-2xl font-semibold">{fmt(totalLicense2)}</p>
-      <p className="text-sm text-gray-500">Summe Lizenz 2-Erlöse</p>
+      <p className="text-sm text-gray-500">Summe Lizenz 2-Erlöse über {months} Monate</p>
     </div>
     <div className="p-4 bg-gray-100 rounded-xl text-center">
       <h3 className="font-medium">Ø monatlicher Erlös Lizenz 2</h3>
