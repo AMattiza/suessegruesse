@@ -20,7 +20,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   const d = payload[0].payload;
   return (
     <div className="bg-white p-4 border rounded-lg shadow-md">
-      <p className="font-semibold">{label}</p>
+      <p className="font-semibold">{d.monthLabel}</p>
       <p>Neukunden: {fmt(d.newCustomers)}</p>
       <p>Nachbesteller: {fmt(d.reorderCustomers)}</p>
     </div>
@@ -31,7 +31,7 @@ const CustomerChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart data={data} margin={{ top: 20, right: 20, left: -40, bottom: 5 }}>
-        <XAxis dataKey="monthLabel" />
+        <XAxis dataKey="month" />
         <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" />
         <Area
