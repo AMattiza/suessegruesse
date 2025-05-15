@@ -262,11 +262,11 @@ const reorders = newPartnersPerMonth
         <InputMask data={data} onChange={setData} sections={['Händlerwachstum', 'Bestellverhalten']} />
       </CollapsibleSection>
 
-      <CollapsibleSection title="Kostenplanung (Pina)">
+      <CollapsibleSection title="Vertriebs- & Logistikkosten (Pina)">
         <InputMask data={data} onChange={setData} sections={['Kostenplanung (Pina)']} />
       </CollapsibleSection>
 
-      <CollapsibleSection title="Lizenz 1 & Lizenz 2">
+      <CollapsibleSection title="Lizenzkosten 1 & 2 (C-Hub)">
         <InputMask
           data={data}
           onChange={setData}
@@ -277,7 +277,7 @@ const reorders = newPartnersPerMonth
         />
       </CollapsibleSection>
 
-    <CollapsibleSection title="Übersicht – Kundenzahlen">
+    <CollapsibleSection title="Kunden">
   <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
@@ -296,16 +296,16 @@ const reorders = newPartnersPerMonth
   </div>
 </CollapsibleSection>
 
-<CollapsibleSection title="Übersicht – Durchschnittswerte">
+<CollapsibleSection title="Umsatz">
   <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmtNum(avgUnitsFirstYear)}</p>
-        <p className="text-sm text-gray-500">Ø VE je Händler im ersten Jahr</p>
+        <p className="text-sm text-gray-500">Ø VE je Händler pro Jahr</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(avgRevenueFirstYear)}</p>
-        <p className="text-sm text-gray-500">Ø Umsatz je Händler im ersten Jahr</p>
+        <p className="text-sm text-gray-500">Ø Umsatz je Händler pro Jahr</p>
       </div>
       <div className="p-4 bg-gray-100 rounded-xl text-center">
         <p className="mt-2 text-2xl font-semibold">{fmt(lastMonthRevenue)}</p>
@@ -315,7 +315,7 @@ const reorders = newPartnersPerMonth
   </div>
 </CollapsibleSection>
 
-<CollapsibleSection title="Übersicht – Gesamt VE">
+<CollapsibleSection title="VE">
   <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
@@ -334,7 +334,7 @@ const reorders = newPartnersPerMonth
   </div>
 </CollapsibleSection>
 
-<CollapsibleSection title="Kostenübersicht – Vertrieb & Logistik">
+<CollapsibleSection title="Vertrieb & Logistik">
   <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
@@ -365,7 +365,7 @@ const reorders = newPartnersPerMonth
   </div>
 </CollapsibleSection>
 
-<CollapsibleSection title="Lizenz-KPIs">
+<CollapsibleSection title="Lizenzen">
   <div className="max-w-screen-xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
       <div className="p-4 bg-gray-100 rounded-xl text-center">
@@ -396,7 +396,7 @@ const reorders = newPartnersPerMonth
   </div>
 </CollapsibleSection>
 
-      <CollapsibleSection title="Einnahmen & Marge">
+      <CollapsibleSection title="Gesamtübersicht">
         <LicenseChart
           data={chartData}
           startYear={startYear}
@@ -418,7 +418,7 @@ const reorders = newPartnersPerMonth
 <CollapsibleSection title="Kundenzuwachs">
   <CustomerChart data={chartData} />
 </CollapsibleSection>
-   <CollapsibleSection title="Lizenzkosten & Kreativanteile">
+   <CollapsibleSection title="Lizenz 1">
   <CreativeChart
     data={chartData}
     license1Gross={license1Gross}
@@ -426,7 +426,7 @@ const reorders = newPartnersPerMonth
     graphicShare={graphicShare}
   />
 </CollapsibleSection>
-    <CollapsibleSection title="Lizenzkosten – Lizenz 2">
+    <CollapsibleSection title="Lizenz 2">
   <License2Chart data={chartData} />
 </CollapsibleSection>
 
