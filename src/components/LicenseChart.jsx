@@ -21,17 +21,41 @@ const CustomTooltip = ({ active, payload, label }) => {
     }).format(value);
 
   return (
-    <div className="bg-white p-4 border rounded-lg shadow-md">
-      <p className="font-semibold">{payload?.[0]?.payload?.monthLabel || label}</p>
-      <p>Neue Kunden: {fmtInt(d.newCustomers)}</p>
-      <p>Nachbesteller: {fmtInt(d.reorderCustomers)}</p>
-      <p>Rohertrag Pina: {fmtDec(d.bruttoRohertrag)} €</p>
-      <p>Vertriebskosten: {fmtDec(d.vertriebsKosten)} €</p>
-      <p>Logistikkosten: {fmtDec(d.logistikKosten)} €</p>
-      <p>Deckungsbeitrag II: {fmtDec(d.deckungsbeitragII)} €</p>
-      <p>Lizenz 1 Erlös: {fmtDec(d.tier1)} €</p>
-      <p>Lizenz 2 Erlös: {fmtDec(d.tier2)} €</p>
-      <p>Restgewinn Pina: {fmtDec(d.restgewinn)} €</p>
+    <div className="bg-white p-4 border rounded-lg shadow-md text-sm space-y-1">
+      <p className="font-semibold text-base mb-2">{d.monthLabel || label}</p>
+
+      <div className="grid grid-cols-2 gap-x-4">
+        <span>Neue Kunden:</span>
+        <span className="text-right font-semibold">{fmtInt(d.newCustomers)}</span>
+
+        <span>Nachbesteller:</span>
+        <span className="text-right font-semibold">{fmtInt(d.reorderCustomers)}</span>
+
+        <span>Rohertrag Pina:</span>
+        <span className="text-right font-semibold">{fmtDec(d.bruttoRohertrag)} €</span>
+
+        <span>Vertriebskosten:</span>
+        <span className="text-right font-semibold">−{fmtDec(d.vertriebsKosten)} €</span>
+
+        <span>Logistikkosten:</span>
+        <span className="text-right font-semibold">−{fmtDec(d.logistikKosten)} €</span>
+
+        <span>Deckungsbeitrag II:</span>
+        <span className="text-right font-semibold">{fmtDec(d.deckungsbeitragII)} €</span>
+
+        <span>Lizenz 1 Erlös:</span>
+        <span className="text-right font-semibold">{fmtDec(d.tier1)} €</span>
+
+        <span>Lizenz 2 Erlös:</span>
+        <span className="text-right font-semibold">{fmtDec(d.tier2)} €</span>
+      </div>
+
+      <hr className="my-2" />
+
+      <div className="grid grid-cols-2 gap-x-4 font-semibold">
+        <span>Restgewinn Pina:</span>
+        <span className="text-right">{fmtDec(d.restgewinn)} €</span>
+      </div>
     </div>
   );
 };
