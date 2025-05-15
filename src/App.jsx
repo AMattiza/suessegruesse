@@ -44,6 +44,7 @@ export default function App() {
     license2Threshold: 50,
     marginPerUnit: 0,
     deckungsbeitragPerUnit: 0
+    avgUnitsFirstYear: 0,
   });
 
   useEffect(() => {
@@ -174,6 +175,7 @@ const reorders = newPartnersPerMonth
   });
 
   const avgUnitsFirstYear = totalNew > 0 ? totalUnitsFirstYear / totalNew : 0;
+setData(d => ({ ...d, avgUnitsFirstYear }));
   const avgRevenueFirstYear = avgUnitsFirstYear * sellPrice;
 
   // 3) Gesamtübersicht
