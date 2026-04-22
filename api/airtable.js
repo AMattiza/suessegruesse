@@ -2,7 +2,7 @@
 // 📁 api/airtable.js
 // Vercel Serverless Function – Airtable Proxy
 // =====================================================
-// DEPLOYMENT: 
+// DEPLOYMENT:
 //   1. Datei in dein Vercel/GitHub-Repo unter /api/airtable.js legen
 //   2. In Vercel → Project Settings → Environment Variables:
 //        AIRTABLE_TOKEN = patSqjAZcXOa7MslA....
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 
   // ---- Whitelist ----
   // Nur erlaubte Tabellen durchlassen (Schutz vor Missbrauch)
-  const ALLOWED_TABLES = ["Firmen", "Objekttypen", "Städte"];
+  const ALLOWED_TABLES = ["Firmen", "Objekttypen", "Städte", "User"];
   if (!ALLOWED_TABLES.includes(table)) {
     return res.status(403).json({ error: { message: `Tabelle '${table}' ist nicht freigegeben.` } });
   }
