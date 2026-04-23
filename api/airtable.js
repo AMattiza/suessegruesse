@@ -8,9 +8,8 @@
 //        AIRTABLE_TOKEN = patSqjAZcXOa7MslA....
 //        AIRTABLE_BASE  = appZrJBVXNrTrcp7c
 //        ALLOWED_ORIGIN = https://www.suesse-gruesse.online
-//   3. Im Frontend (kunde_anlegen.html):
-//        API_CONFIG.USE_PROXY  = true
-//        API_CONFIG.PROXY_BASE = "https://DEIN-PROJEKT.vercel.app/api/airtable"
+//   3. Im Frontend:
+//        PROXY_URL = "https://DEIN-PROJEKT.vercel.app/api/airtable"
 //   4. Airtable-Token im Frontend-Code löschen
 // =====================================================
 //
@@ -42,7 +41,19 @@ export default async function handler(req, res) {
 
   // ---- Whitelist ----
   // Nur erlaubte Tabellen durchlassen (Schutz vor Missbrauch)
-  const ALLOWED_TABLES = ["Firmen", "Objekttypen", "Städte", "User"];
+  const ALLOWED_TABLES = [
+    // Bestehendes Formular
+    "Firmen",
+    "Objekttypen",
+    "Städte",
+    "User",
+    // Neues Auftragsformular
+    "Projects",
+    "Illustrationen (AI)",
+    "Kontakte",
+    "tblPnRnrtVmOd7KnD",  // Vertriebsmitarbeiter
+    "tblyZxDd39OKqThP5"   // Postkartenedition
+  ];
   if (!ALLOWED_TABLES.includes(table)) {
     return res.status(403).json({ error: { message: `Tabelle '${table}' ist nicht freigegeben.` } });
   }
