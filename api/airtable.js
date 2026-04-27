@@ -50,6 +50,7 @@ export default async function handler(req, res) {
     "Projects",
     "Illustrationen (AI)",
     "Kontakte",
+    "Freigaben",
     "tblPnRnrtVmOd7KnD",  // Vertriebsmitarbeiter
     "tblyZxDd39OKqThP5"   // Postkartenedition
   ];
